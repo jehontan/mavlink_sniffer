@@ -1,0 +1,73 @@
+from enum import IntEnum
+from abc import ABC, abstractmethod
+import struct
+from typing import Dict, Type, Optional, Tuple
+from dataclasses import dataclass
+
+class Unpackable(ABC):
+    @classmethod
+    @abstractmethod
+    def unpack(cls, data: bytes, offset: int = 0):
+        return NotImplemented
+
+class MessageRegister:
+    name_to_id : Dict[str, int] = {}
+    id_to_type : Dict[int, Type[Unpackable]] = {}
+
+    @classmethod
+    def __call__(cls, name:str, msg_id:int):
+        def _decorator(cls_):
+            cls.name_to_id[name] = msg_id
+            cls.id_to_type[msg_id] = cls_
+            return cls_
+        return _decorator
+
+register = MessageRegister()
+
+@dataclass
+class MavlinkMessage(Unpackable):
+    len_ : int = 0
+    seq : int = 0
+    sys_id : int = 0
+    comp_id: int = 0
+    msg_id : int = 0
+    payload : Optional[Unpackable] = None
+
+    @classmethod
+    def unpack(cls, data, offset = 0):
+        args = struct.unpack_from('!5B', data, offset)
+        payload = register.id_to_type[args[4]].unpack(data[5:-2])
+        return cls(*args, payload)
+
+
+### Enumerations ###
+{% for enum in enums %}
+class {{ enum['@name'] }}(IntEnum):
+    {%-for entry in ensure_list(enum['entry'])%}
+    {{ entry['@name'] }} = {{ entry['@value'] }}
+    {%- endfor %}
+{% endfor %}
+
+### Messages ###
+
+{%- for msg in messages %}
+@register('{{ msg['@name'] }}', {{ msg['@id'] }})
+@dataclass
+class {{ to_camel_case(msg['@name']) }}(Unpackable):
+    '''
+    {{ msg['description'] }}
+    '''
+    {%- for field in ensure_list(msg['field']) %}
+    {{ field['@name'] }} : {{ resolve_type(field) }}
+    {%- endfor %}
+
+    @classmethod
+    def unpack(cls, data, offset = 0):
+        {%- set main_fmt, sub_fmts = resolve_fmt(msg) %}
+        args = struct.unpack_from('{{ main_fmt }}', data, offset)
+        {%- for sub_fmt in sub_fmts %}
+        args[{{ sub_fmt[0] }}] = tuple(*struct.unpack('{{ sub_fmt[1] }}', args[{{ sub_fmt[0] }}]))
+        {%- endfor %}
+        return cls(*args)
+
+{% endfor %}
