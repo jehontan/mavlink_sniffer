@@ -1,2 +1,4 @@
 xmltodict
 jinja2
+dpkt
+pypcap

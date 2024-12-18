@@ -1,11 +1,8 @@
-import socket
+import pcap
+import dpkt
 from mavlink_messages import *
 
-ETH_P_ALL = 3
-ETH_P_IP = 0x800
-PROTO_UDP = 17
-sock = socket.socket(socket.AF_PACKET, socket.SOCK_DGRAM, socket.htons(ETH_P_IP))
-sock.bind(("lo", 0))
+cap = pcap.pcap('lo', immediate=True)
 
 def parse_mav(data):
     if data[0] != 0xfe:
@@ -14,19 +11,19 @@ def parse_mav(data):
     msg = MavlinkMessage.unpack(data[1:])
     print(msg.payload)
 
-while True:
-    data = sock.recv(2048)
-    ihl = (data[0] & 0b1111) * 4 # number of bytes in header
-    version = data[0] >> 4
+def handle_packet(timestamp, packet, *args):
+    # data = sock.recv(2048)
+    eth = dpkt.ethernet.Ethernet(packet)
 
-    if version == 4:
-        protocol = data[9]
-        mav_packet = data[28:]
-        parse_mav(mav_packet)
-    elif version == 6:
-        # Untested
-        protocol = data[6]
-        mav_packet = data[40:]
-        parse_mav(mav_packet)
-    else:
-        print("Malformed IP packet")
+    if not isinstance(eth.data, dpkt.ip.IP):
+        return
+
+    data : dpkt.udp.UDP = eth.data.data.data
+    print(timestamp)
+    parse_mav(data)
+
+
+while True:
+    packets = cap.readpkts()
+    for timestamp, pkt in packets:
+        handle_packet(timestamp, pkt)
