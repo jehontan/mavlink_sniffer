@@ -46,7 +46,19 @@ def resolve_type(field:dict) -> str:
             return f'Tuple[{",".join([t for i in range(arr_len)])}]'
     else:
         return type_map[T][0]
-    
+
+def type_size(field:dict) -> int:
+    # handle arrays
+    T = field['@type']
+    match = re.search('(?<=\[).+(?=\])', T)
+
+    if match:
+        T = T[:match.span()[0]-1]
+
+    return type_map[T][2]
+
+def reorder_fields(fields: list):
+    return sorted(fields, key=type_size, reverse=True)
 
 def resolve_fmt(msg:dict) -> Tuple[str, List[Tuple[int, str]]]:
     main_fmt = '!'
@@ -61,7 +73,7 @@ def resolve_fmt(msg:dict) -> Tuple[str, List[Tuple[int, str]]]:
             arr_len = int(match.group())
             main_fmt += f'{arr_len * type_map[T][2]}s'
             if T != 'char':
-                sub_fmts.append((i, f'!{arr_len}{type_map[T][1]}'))
+                sub_fmts.append((i, f'<{arr_len}{type_map[T][1]}'))
         else:
             main_fmt += type_map[T][1]
 
@@ -119,6 +131,7 @@ def main(args):
         f.write(template.render(
             enums=enums,
             messages=messages,
+            reorder_fields = reorder_fields,
             resolve_type = resolve_type,
             resolve_fmt = resolve_fmt,
             ensure_list = ensure_list,

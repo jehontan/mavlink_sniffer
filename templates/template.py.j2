@@ -35,7 +35,7 @@ class MavlinkMessage(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!5B', data, offset)
+        args = struct.unpack_from('<5B', data, offset)
         payload = register.id_to_type[args[4]].unpack(data[5:-2])
         return cls(*args, payload)
 
@@ -57,7 +57,7 @@ class {{ to_camel_case(msg['@name']) }}(Unpackable):
     '''
     {{ msg['description'] }}
     '''
-    {%- for field in ensure_list(msg['field']) %}
+    {%- for field in reorder_fields(ensure_list(msg['field'])) %}
     {{ field['@name'] }} : {{ resolve_type(field) }}
     {%- endfor %}
 
