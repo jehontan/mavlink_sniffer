@@ -1888,7 +1888,7 @@ class SysStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IIIHHhbHHHHHH', data, offset)
+        args = struct.unpack_from('<IIIHHhbHHHHHH', data, offset)
         return cls(*args)
 
 
@@ -1903,7 +1903,7 @@ class SystemTime(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QI', data, offset)
+        args = struct.unpack_from('<QI', data, offset)
         return cls(*args)
 
 
@@ -1920,7 +1920,7 @@ class Ping(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QIBB', data, offset)
+        args = struct.unpack_from('<QIBB', data, offset)
         return cls(*args)
 
 
@@ -1937,7 +1937,7 @@ class ChangeOperatorControl(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBB25s', data, offset)
+        args = struct.unpack_from('<BBB25s', data, offset)
         return cls(*args)
 
 
@@ -1953,7 +1953,7 @@ class ChangeOperatorControlAck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBB', data, offset)
+        args = struct.unpack_from('<BBB', data, offset)
         return cls(*args)
 
 
@@ -1967,7 +1967,7 @@ class AuthKey(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!32s', data, offset)
+        args = struct.unpack_from('<32s', data, offset)
         return cls(*args)
 
 
@@ -1991,7 +1991,7 @@ class LinkNodeStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBBIIHHHIII', data, offset)
+        args = struct.unpack_from('<QBBIIHHHIII', data, offset)
         return cls(*args)
 
 
@@ -2007,7 +2007,7 @@ class SetMode(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBI', data, offset)
+        args = struct.unpack_from('<BBI', data, offset)
         return cls(*args)
 
 
@@ -2024,7 +2024,7 @@ class ParamRequestRead(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16sh', data, offset)
+        args = struct.unpack_from('<BB16sh', data, offset)
         return cls(*args)
 
 
@@ -2039,7 +2039,7 @@ class ParamRequestList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -2057,7 +2057,7 @@ class ParamValue(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!16sfBHH', data, offset)
+        args = struct.unpack_from('<16sfBHH', data, offset)
         return cls(*args)
 
 
@@ -2076,7 +2076,7 @@ class ParamSet(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16sfB', data, offset)
+        args = struct.unpack_from('<BB16sfB', data, offset)
         return cls(*args)
 
 
@@ -2100,7 +2100,7 @@ class GpsRawInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBiiiHHHHB', data, offset)
+        args = struct.unpack_from('<QBiiiHHHHB', data, offset)
         return cls(*args)
 
 
@@ -2119,7 +2119,7 @@ class GpsStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!B20s20s20s20s20s', data, offset)
+        args = struct.unpack_from('<B20s20s20s20s20s', data, offset)
         args[1] = tuple(*struct.unpack('<20B', args[1]))
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         args[3] = tuple(*struct.unpack('<20B', args[3]))
@@ -2147,7 +2147,7 @@ class ScaledImu(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Ihhhhhhhhh', data, offset)
+        args = struct.unpack_from('<Ihhhhhhhhh', data, offset)
         return cls(*args)
 
 
@@ -2170,7 +2170,7 @@ class RawImu(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qhhhhhhhhh', data, offset)
+        args = struct.unpack_from('<Qhhhhhhhhh', data, offset)
         return cls(*args)
 
 
@@ -2188,7 +2188,7 @@ class RawPressure(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qhhhh', data, offset)
+        args = struct.unpack_from('<Qhhhh', data, offset)
         return cls(*args)
 
 
@@ -2205,7 +2205,7 @@ class ScaledPressure(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffh', data, offset)
+        args = struct.unpack_from('<Iffh', data, offset)
         return cls(*args)
 
 
@@ -2225,7 +2225,7 @@ class Attitude(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffffff', data, offset)
+        args = struct.unpack_from('<Iffffff', data, offset)
         return cls(*args)
 
 
@@ -2246,7 +2246,7 @@ class AttitudeQuaternion(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Ifffffff', data, offset)
+        args = struct.unpack_from('<Ifffffff', data, offset)
         return cls(*args)
 
 
@@ -2266,7 +2266,7 @@ class LocalPositionNed(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffffff', data, offset)
+        args = struct.unpack_from('<Iffffff', data, offset)
         return cls(*args)
 
 
@@ -2289,7 +2289,7 @@ class GlobalPositionInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IiiiihhhH', data, offset)
+        args = struct.unpack_from('<IiiiihhhH', data, offset)
         return cls(*args)
 
 
@@ -2313,7 +2313,7 @@ class RcChannelsScaled(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBhhhhhhhhB', data, offset)
+        args = struct.unpack_from('<IBhhhhhhhhB', data, offset)
         return cls(*args)
 
 
@@ -2337,7 +2337,7 @@ class RcChannelsRaw(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHHHHHHHHB', data, offset)
+        args = struct.unpack_from('<IBHHHHHHHHB', data, offset)
         return cls(*args)
 
 
@@ -2360,7 +2360,7 @@ class ServoOutputRaw(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHHHHHHHH', data, offset)
+        args = struct.unpack_from('<IBHHHHHHHH', data, offset)
         return cls(*args)
 
 
@@ -2377,7 +2377,7 @@ class MissionRequestPartialList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBhh', data, offset)
+        args = struct.unpack_from('<BBhh', data, offset)
         return cls(*args)
 
 
@@ -2394,7 +2394,7 @@ class MissionWritePartialList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBhh', data, offset)
+        args = struct.unpack_from('<BBhh', data, offset)
         return cls(*args)
 
 
@@ -2422,7 +2422,7 @@ class MissionItem(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHBHBBfffffff', data, offset)
+        args = struct.unpack_from('<BBHBHBBfffffff', data, offset)
         return cls(*args)
 
 
@@ -2438,7 +2438,7 @@ class MissionRequest(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -2460,7 +2460,7 @@ class MissionSetCurrent(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -2476,7 +2476,7 @@ class MissionCurrent(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!H', data, offset)
+        args = struct.unpack_from('<H', data, offset)
         return cls(*args)
 
 
@@ -2491,7 +2491,7 @@ class MissionRequestList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -2507,7 +2507,7 @@ class MissionCount(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -2522,7 +2522,7 @@ class MissionClearAll(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -2536,7 +2536,7 @@ class MissionItemReached(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!H', data, offset)
+        args = struct.unpack_from('<H', data, offset)
         return cls(*args)
 
 
@@ -2552,7 +2552,7 @@ class MissionAck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBB', data, offset)
+        args = struct.unpack_from('<BBB', data, offset)
         return cls(*args)
 
 
@@ -2569,7 +2569,7 @@ class SetGpsGlobalOrigin(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Biii', data, offset)
+        args = struct.unpack_from('<Biii', data, offset)
         return cls(*args)
 
 
@@ -2585,7 +2585,7 @@ class GpsGlobalOrigin(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iii', data, offset)
+        args = struct.unpack_from('<iii', data, offset)
         return cls(*args)
 
 
@@ -2607,7 +2607,7 @@ class ParamMapRc(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16shBffff', data, offset)
+        args = struct.unpack_from('<BB16shBffff', data, offset)
         return cls(*args)
 
 
@@ -2623,7 +2623,7 @@ class MissionRequestInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -2645,7 +2645,7 @@ class SafetySetAllowedArea(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBffffff', data, offset)
+        args = struct.unpack_from('<BBBffffff', data, offset)
         return cls(*args)
 
 
@@ -2665,7 +2665,7 @@ class SafetyAllowedArea(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Bffffff', data, offset)
+        args = struct.unpack_from('<Bffffff', data, offset)
         return cls(*args)
 
 
@@ -2684,7 +2684,7 @@ class AttitudeQuaternionCov(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q16sfff36s', data, offset)
+        args = struct.unpack_from('<Q16sfff36s', data, offset)
         args[1] = tuple(*struct.unpack('<4f', args[1]))
         args[5] = tuple(*struct.unpack('<9f', args[5]))
         return cls(*args)
@@ -2707,7 +2707,7 @@ class NavControllerOutput(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!ffhhHfff', data, offset)
+        args = struct.unpack_from('<ffhhHfff', data, offset)
         return cls(*args)
 
 
@@ -2730,7 +2730,7 @@ class GlobalPositionIntCov(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBiiiifff144s', data, offset)
+        args = struct.unpack_from('<QBiiiifff144s', data, offset)
         args[9] = tuple(*struct.unpack('<36f', args[9]))
         return cls(*args)
 
@@ -2756,7 +2756,7 @@ class LocalPositionNedCov(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBfffffffff180s', data, offset)
+        args = struct.unpack_from('<QBfffffffff180s', data, offset)
         args[11] = tuple(*struct.unpack('<45f', args[11]))
         return cls(*args)
 
@@ -2791,7 +2791,7 @@ class RcChannels(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHHHHHHHHHHHHHHHHHHB', data, offset)
+        args = struct.unpack_from('<IBHHHHHHHHHHHHHHHHHHB', data, offset)
         return cls(*args)
 
 
@@ -2809,7 +2809,7 @@ class RequestDataStream(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBHB', data, offset)
+        args = struct.unpack_from('<BBBHB', data, offset)
         return cls(*args)
 
 
@@ -2825,7 +2825,7 @@ class DataStream(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BHB', data, offset)
+        args = struct.unpack_from('<BHB', data, offset)
         return cls(*args)
 
 
@@ -2844,7 +2844,7 @@ class ManualControl(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BhhhhH', data, offset)
+        args = struct.unpack_from('<BhhhhH', data, offset)
         return cls(*args)
 
 
@@ -2867,7 +2867,7 @@ class RcChannelsOverride(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHHHHHHHH', data, offset)
+        args = struct.unpack_from('<BBHHHHHHHH', data, offset)
         return cls(*args)
 
 
@@ -2895,7 +2895,7 @@ class MissionItemInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHBHBBffffiif', data, offset)
+        args = struct.unpack_from('<BBHBHBBffffiif', data, offset)
         return cls(*args)
 
 
@@ -2914,7 +2914,7 @@ class VfrHud(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!ffhHff', data, offset)
+        args = struct.unpack_from('<ffhHff', data, offset)
         return cls(*args)
 
 
@@ -2940,7 +2940,7 @@ class CommandInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBHBBffffiif', data, offset)
+        args = struct.unpack_from('<BBBHBBffffiif', data, offset)
         return cls(*args)
 
 
@@ -2964,7 +2964,7 @@ class CommandLong(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHBfffffff', data, offset)
+        args = struct.unpack_from('<BBHBfffffff', data, offset)
         return cls(*args)
 
 
@@ -2979,7 +2979,7 @@ class CommandAck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HB', data, offset)
+        args = struct.unpack_from('<HB', data, offset)
         return cls(*args)
 
 
@@ -2995,7 +2995,7 @@ class CommandCancel(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -3015,7 +3015,7 @@ class ManualSetpoint(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IffffBB', data, offset)
+        args = struct.unpack_from('<IffffBB', data, offset)
         return cls(*args)
 
 
@@ -3037,7 +3037,7 @@ class SetAttitudeTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBB16sffff', data, offset)
+        args = struct.unpack_from('<IBBB16sffff', data, offset)
         args[4] = tuple(*struct.unpack('<4f', args[4]))
         return cls(*args)
 
@@ -3058,7 +3058,7 @@ class AttitudeTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IB16sffff', data, offset)
+        args = struct.unpack_from('<IB16sffff', data, offset)
         args[2] = tuple(*struct.unpack('<4f', args[2]))
         return cls(*args)
 
@@ -3088,7 +3088,7 @@ class SetPositionTargetLocalNed(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBBHfffffffffff', data, offset)
+        args = struct.unpack_from('<IBBBHfffffffffff', data, offset)
         return cls(*args)
 
 
@@ -3115,7 +3115,7 @@ class PositionTargetLocalNed(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHfffffffffff', data, offset)
+        args = struct.unpack_from('<IBHfffffffffff', data, offset)
         return cls(*args)
 
 
@@ -3144,7 +3144,7 @@ class SetPositionTargetGlobalInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBBHiifffffffff', data, offset)
+        args = struct.unpack_from('<IBBBHiifffffffff', data, offset)
         return cls(*args)
 
 
@@ -3171,7 +3171,7 @@ class PositionTargetGlobalInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHiifffffffff', data, offset)
+        args = struct.unpack_from('<IBHiifffffffff', data, offset)
         return cls(*args)
 
 
@@ -3191,7 +3191,7 @@ class LocalPositionNedSystemGlobalOffset(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffffff', data, offset)
+        args = struct.unpack_from('<Iffffff', data, offset)
         return cls(*args)
 
 
@@ -3220,7 +3220,7 @@ class HilState(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffffiiihhhhhh', data, offset)
+        args = struct.unpack_from('<Qffffffiiihhhhhh', data, offset)
         return cls(*args)
 
 
@@ -3244,7 +3244,7 @@ class HilControls(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QffffffffBB', data, offset)
+        args = struct.unpack_from('<QffffffffBB', data, offset)
         return cls(*args)
 
 
@@ -3271,7 +3271,7 @@ class HilRcInputsRaw(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QHHHHHHHHHHHHB', data, offset)
+        args = struct.unpack_from('<QHHHHHHHHHHHHB', data, offset)
         return cls(*args)
 
 
@@ -3288,7 +3288,7 @@ class HilActuatorControls(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q64sBQ', data, offset)
+        args = struct.unpack_from('<Q64sBQ', data, offset)
         args[1] = tuple(*struct.unpack('<16f', args[1]))
         return cls(*args)
 
@@ -3310,7 +3310,7 @@ class OpticalFlow(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBhhffBf', data, offset)
+        args = struct.unpack_from('<QBhhffBf', data, offset)
         return cls(*args)
 
 
@@ -3330,7 +3330,7 @@ class GlobalVisionPositionEstimate(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffff', data, offset)
+        args = struct.unpack_from('<Qffffff', data, offset)
         return cls(*args)
 
 
@@ -3350,7 +3350,7 @@ class VisionPositionEstimate(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffff', data, offset)
+        args = struct.unpack_from('<Qffffff', data, offset)
         return cls(*args)
 
 
@@ -3367,7 +3367,7 @@ class VisionSpeedEstimate(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qfff', data, offset)
+        args = struct.unpack_from('<Qfff', data, offset)
         return cls(*args)
 
 
@@ -3387,7 +3387,7 @@ class ViconPositionEstimate(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffff', data, offset)
+        args = struct.unpack_from('<Qffffff', data, offset)
         return cls(*args)
 
 
@@ -3415,7 +3415,7 @@ class HighresImu(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QfffffffffffffH', data, offset)
+        args = struct.unpack_from('<QfffffffffffffH', data, offset)
         return cls(*args)
 
 
@@ -3440,7 +3440,7 @@ class OpticalFlowRad(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBIfffffhBIf', data, offset)
+        args = struct.unpack_from('<QBIfffffhBIf', data, offset)
         return cls(*args)
 
 
@@ -3468,7 +3468,7 @@ class HilSensor(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QfffffffffffffI', data, offset)
+        args = struct.unpack_from('<QfffffffffffffI', data, offset)
         return cls(*args)
 
 
@@ -3502,7 +3502,7 @@ class SimState(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!fffffffffffffffffffff', data, offset)
+        args = struct.unpack_from('<fffffffffffffffffffff', data, offset)
         return cls(*args)
 
 
@@ -3522,7 +3522,7 @@ class RadioStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBBHH', data, offset)
+        args = struct.unpack_from('<BBBBBHH', data, offset)
         return cls(*args)
 
 
@@ -3539,7 +3539,7 @@ class FileTransferProtocol(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBB251s', data, offset)
+        args = struct.unpack_from('<BBB251s', data, offset)
         args[3] = tuple(*struct.unpack('<251B', args[3]))
         return cls(*args)
 
@@ -3562,7 +3562,7 @@ class Timesync(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!qq', data, offset)
+        args = struct.unpack_from('<qq', data, offset)
         return cls(*args)
 
 
@@ -3577,7 +3577,7 @@ class CameraTrigger(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QI', data, offset)
+        args = struct.unpack_from('<QI', data, offset)
         return cls(*args)
 
 
@@ -3604,7 +3604,7 @@ class HilGps(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBiiiHHHhhhHB', data, offset)
+        args = struct.unpack_from('<QBiiiHHHhhhHB', data, offset)
         return cls(*args)
 
 
@@ -3629,7 +3629,7 @@ class HilOpticalFlow(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBIfffffhBIf', data, offset)
+        args = struct.unpack_from('<QBIfffffhBIf', data, offset)
         return cls(*args)
 
 
@@ -3658,7 +3658,7 @@ class HilStateQuaternion(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q16sfffiiihhhHHhhh', data, offset)
+        args = struct.unpack_from('<Q16sfffiiihhhHHhhh', data, offset)
         args[1] = tuple(*struct.unpack('<4f', args[1]))
         return cls(*args)
 
@@ -3682,7 +3682,7 @@ class ScaledImu2(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Ihhhhhhhhh', data, offset)
+        args = struct.unpack_from('<Ihhhhhhhhh', data, offset)
         return cls(*args)
 
 
@@ -3699,7 +3699,7 @@ class LogRequestList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHH', data, offset)
+        args = struct.unpack_from('<BBHH', data, offset)
         return cls(*args)
 
 
@@ -3717,7 +3717,7 @@ class LogEntry(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HHHII', data, offset)
+        args = struct.unpack_from('<HHHII', data, offset)
         return cls(*args)
 
 
@@ -3735,7 +3735,7 @@ class LogRequestData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHII', data, offset)
+        args = struct.unpack_from('<BBHII', data, offset)
         return cls(*args)
 
 
@@ -3752,7 +3752,7 @@ class LogData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HIB90s', data, offset)
+        args = struct.unpack_from('<HIB90s', data, offset)
         args[3] = tuple(*struct.unpack('<90B', args[3]))
         return cls(*args)
 
@@ -3768,7 +3768,7 @@ class LogErase(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -3783,7 +3783,7 @@ class LogRequestEnd(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -3800,7 +3800,7 @@ class GpsInjectData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBB110s', data, offset)
+        args = struct.unpack_from('<BBB110s', data, offset)
         args[3] = tuple(*struct.unpack('<110B', args[3]))
         return cls(*args)
 
@@ -3826,7 +3826,7 @@ class Gps2Raw(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBiiiHHHHBBI', data, offset)
+        args = struct.unpack_from('<QBiiiHHHHBBI', data, offset)
         return cls(*args)
 
 
@@ -3842,7 +3842,7 @@ class PowerStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HHH', data, offset)
+        args = struct.unpack_from('<HHH', data, offset)
         return cls(*args)
 
 
@@ -3861,7 +3861,7 @@ class SerialControl(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHIB70s', data, offset)
+        args = struct.unpack_from('<BBHIB70s', data, offset)
         args[5] = tuple(*struct.unpack('<70B', args[5]))
         return cls(*args)
 
@@ -3888,7 +3888,7 @@ class GpsRtk(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHIBBBBiiiIi', data, offset)
+        args = struct.unpack_from('<IBHIBBBBiiiIi', data, offset)
         return cls(*args)
 
 
@@ -3914,7 +3914,7 @@ class Gps2Rtk(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBHIBBBBiiiIi', data, offset)
+        args = struct.unpack_from('<IBHIBBBBiiiIi', data, offset)
         return cls(*args)
 
 
@@ -3937,7 +3937,7 @@ class ScaledImu3(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Ihhhhhhhhh', data, offset)
+        args = struct.unpack_from('<Ihhhhhhhhh', data, offset)
         return cls(*args)
 
 
@@ -3957,7 +3957,7 @@ class DataTransmissionHandshake(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BIHHHBB', data, offset)
+        args = struct.unpack_from('<BIHHHBB', data, offset)
         return cls(*args)
 
 
@@ -3972,7 +3972,7 @@ class EncapsulatedData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!H253s', data, offset)
+        args = struct.unpack_from('<H253s', data, offset)
         args[1] = tuple(*struct.unpack('<253B', args[1]))
         return cls(*args)
 
@@ -3994,7 +3994,7 @@ class DistanceSensor(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IHHHBBBB', data, offset)
+        args = struct.unpack_from('<IHHHBBBB', data, offset)
         return cls(*args)
 
 
@@ -4011,7 +4011,7 @@ class TerrainRequest(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iiHQ', data, offset)
+        args = struct.unpack_from('<iiHQ', data, offset)
         return cls(*args)
 
 
@@ -4029,7 +4029,7 @@ class TerrainData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iiHB32s', data, offset)
+        args = struct.unpack_from('<iiHB32s', data, offset)
         args[4] = tuple(*struct.unpack('<16h', args[4]))
         return cls(*args)
 
@@ -4045,7 +4045,7 @@ class TerrainCheck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!ii', data, offset)
+        args = struct.unpack_from('<ii', data, offset)
         return cls(*args)
 
 
@@ -4065,7 +4065,7 @@ class TerrainReport(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iiHffHH', data, offset)
+        args = struct.unpack_from('<iiHffHH', data, offset)
         return cls(*args)
 
 
@@ -4082,7 +4082,7 @@ class ScaledPressure2(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffh', data, offset)
+        args = struct.unpack_from('<Iffh', data, offset)
         return cls(*args)
 
 
@@ -4100,7 +4100,7 @@ class AttPosMocap(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q16sfff', data, offset)
+        args = struct.unpack_from('<Q16sfff', data, offset)
         args[1] = tuple(*struct.unpack('<4f', args[1]))
         return cls(*args)
 
@@ -4119,7 +4119,7 @@ class SetActuatorControlTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBBB32s', data, offset)
+        args = struct.unpack_from('<QBBB32s', data, offset)
         args[4] = tuple(*struct.unpack('<8f', args[4]))
         return cls(*args)
 
@@ -4136,7 +4136,7 @@ class ActuatorControlTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QB32s', data, offset)
+        args = struct.unpack_from('<QB32s', data, offset)
         args[2] = tuple(*struct.unpack('<8f', args[2]))
         return cls(*args)
 
@@ -4157,7 +4157,7 @@ class Altitude(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffff', data, offset)
+        args = struct.unpack_from('<Qffffff', data, offset)
         return cls(*args)
 
 
@@ -4175,7 +4175,7 @@ class ResourceRequest(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB120sB120s', data, offset)
+        args = struct.unpack_from('<BB120sB120s', data, offset)
         args[2] = tuple(*struct.unpack('<120B', args[2]))
         args[4] = tuple(*struct.unpack('<120B', args[4]))
         return cls(*args)
@@ -4194,7 +4194,7 @@ class ScaledPressure3(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iffh', data, offset)
+        args = struct.unpack_from('<Iffh', data, offset)
         return cls(*args)
 
 
@@ -4218,7 +4218,7 @@ class FollowTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBiif12s12s16s12s12sQ', data, offset)
+        args = struct.unpack_from('<QBiif12s12s16s12s12sQ', data, offset)
         args[5] = tuple(*struct.unpack('<3f', args[5]))
         args[6] = tuple(*struct.unpack('<3f', args[6]))
         args[7] = tuple(*struct.unpack('<4f', args[7]))
@@ -4253,7 +4253,7 @@ class ControlSystemState(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffffffff12s12s16sfff', data, offset)
+        args = struct.unpack_from('<Qffffffffff12s12s16sfff', data, offset)
         args[11] = tuple(*struct.unpack('<3f', args[11]))
         args[12] = tuple(*struct.unpack('<3f', args[12]))
         args[13] = tuple(*struct.unpack('<4f', args[13]))
@@ -4278,7 +4278,7 @@ class BatteryStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBh20shiib', data, offset)
+        args = struct.unpack_from('<BBBh20shiib', data, offset)
         args[4] = tuple(*struct.unpack('<10H', args[4]))
         return cls(*args)
 
@@ -4303,7 +4303,7 @@ class AutopilotVersion(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QIIII8s8s8sHHQ', data, offset)
+        args = struct.unpack_from('<QIIII8s8s8sHHQ', data, offset)
         args[5] = tuple(*struct.unpack('<8B', args[5]))
         args[6] = tuple(*struct.unpack('<8B', args[6]))
         args[7] = tuple(*struct.unpack('<8B', args[7]))
@@ -4327,7 +4327,7 @@ class LandingTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBBfffff', data, offset)
+        args = struct.unpack_from('<QBBfffff', data, offset)
         return cls(*args)
 
 
@@ -4344,7 +4344,7 @@ class FenceStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BHBI', data, offset)
+        args = struct.unpack_from('<BHBI', data, offset)
         return cls(*args)
 
 
@@ -4371,7 +4371,7 @@ class MagCalReport(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBffffffffff', data, offset)
+        args = struct.unpack_from('<BBBBffffffffff', data, offset)
         return cls(*args)
 
 
@@ -4401,7 +4401,7 @@ class EfiStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Bffffffffffffffff', data, offset)
+        args = struct.unpack_from('<Bffffffffffffffff', data, offset)
         return cls(*args)
 
 
@@ -4424,7 +4424,7 @@ class EstimatorStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QHffffffff', data, offset)
+        args = struct.unpack_from('<QHffffffff', data, offset)
         return cls(*args)
 
 
@@ -4446,7 +4446,7 @@ class WindCov(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Qffffffff', data, offset)
+        args = struct.unpack_from('<Qffffffff', data, offset)
         return cls(*args)
 
 
@@ -4477,7 +4477,7 @@ class GpsInput(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBHIHBiifffffffffB', data, offset)
+        args = struct.unpack_from('<QBHIHBiifffffffffB', data, offset)
         return cls(*args)
 
 
@@ -4493,7 +4493,7 @@ class GpsRtcmData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB180s', data, offset)
+        args = struct.unpack_from('<BB180s', data, offset)
         args[2] = tuple(*struct.unpack('<180B', args[2]))
         return cls(*args)
 
@@ -4531,7 +4531,7 @@ class HighLatency(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BIBhhHbhiihhBBBbBBBbbBBH', data, offset)
+        args = struct.unpack_from('<BIBhhHbhiihhBBBbBBBbbBBH', data, offset)
         return cls(*args)
 
 
@@ -4571,7 +4571,7 @@ class HighLatency2(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBHiihhBBHBBBBBBBBbbbHHbbb', data, offset)
+        args = struct.unpack_from('<IBBHiihhBBHBBBBBBBBbbbHHbbb', data, offset)
         return cls(*args)
 
 
@@ -4591,7 +4591,7 @@ class Vibration(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QfffIII', data, offset)
+        args = struct.unpack_from('<QfffIII', data, offset)
         return cls(*args)
 
 
@@ -4620,7 +4620,7 @@ class HomePosition(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iiifff16sfff', data, offset)
+        args = struct.unpack_from('<iiifff16sfff', data, offset)
         args[6] = tuple(*struct.unpack('<4f', args[6]))
         return cls(*args)
 
@@ -4651,7 +4651,7 @@ class SetHomePosition(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Biiifff16sfff', data, offset)
+        args = struct.unpack_from('<Biiifff16sfff', data, offset)
         args[7] = tuple(*struct.unpack('<4f', args[7]))
         return cls(*args)
 
@@ -4670,7 +4670,7 @@ class MessageInterval(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Hi', data, offset)
+        args = struct.unpack_from('<Hi', data, offset)
         return cls(*args)
 
 
@@ -4685,7 +4685,7 @@ class ExtendedSysState(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -4711,7 +4711,7 @@ class AdsbVehicle(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IiiBiHHh9sBBHH', data, offset)
+        args = struct.unpack_from('<IiiBiHHh9sBBHH', data, offset)
         return cls(*args)
 
 
@@ -4731,7 +4731,7 @@ class Collision(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BIBBfff', data, offset)
+        args = struct.unpack_from('<BIBBfff', data, offset)
         return cls(*args)
 
 
@@ -4749,7 +4749,7 @@ class V2Extension(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBH249s', data, offset)
+        args = struct.unpack_from('<BBBH249s', data, offset)
         args[4] = tuple(*struct.unpack('<249B', args[4]))
         return cls(*args)
 
@@ -4767,7 +4767,7 @@ class MemoryVect(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HBB32s', data, offset)
+        args = struct.unpack_from('<HBB32s', data, offset)
         args[3] = tuple(*struct.unpack('<32b', args[3]))
         return cls(*args)
 
@@ -4786,7 +4786,7 @@ class DebugVect(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!10sQfff', data, offset)
+        args = struct.unpack_from('<10sQfff', data, offset)
         return cls(*args)
 
 
@@ -4802,7 +4802,7 @@ class NamedValueFloat(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!I10sf', data, offset)
+        args = struct.unpack_from('<I10sf', data, offset)
         return cls(*args)
 
 
@@ -4818,7 +4818,7 @@ class NamedValueInt(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!I10si', data, offset)
+        args = struct.unpack_from('<I10si', data, offset)
         return cls(*args)
 
 
@@ -4833,7 +4833,7 @@ class Statustext(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!B50s', data, offset)
+        args = struct.unpack_from('<B50s', data, offset)
         return cls(*args)
 
 
@@ -4849,7 +4849,7 @@ class Debug(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBf', data, offset)
+        args = struct.unpack_from('<IBf', data, offset)
         return cls(*args)
 
 
@@ -4866,7 +4866,7 @@ class SetupSigning(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB32sQ', data, offset)
+        args = struct.unpack_from('<BB32sQ', data, offset)
         args[2] = tuple(*struct.unpack('<32B', args[2]))
         return cls(*args)
 
@@ -4883,7 +4883,7 @@ class ButtonChange(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IIB', data, offset)
+        args = struct.unpack_from('<IIB', data, offset)
         return cls(*args)
 
 
@@ -4899,7 +4899,7 @@ class PlayTune(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB30s', data, offset)
+        args = struct.unpack_from('<BB30s', data, offset)
         return cls(*args)
 
 
@@ -4925,7 +4925,7 @@ class CameraInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!I32s32sIfffHHBIH140s', data, offset)
+        args = struct.unpack_from('<I32s32sIfffHHBIH140s', data, offset)
         args[1] = tuple(*struct.unpack('<32B', args[1]))
         args[2] = tuple(*struct.unpack('<32B', args[2]))
         return cls(*args)
@@ -4942,7 +4942,7 @@ class CameraSettings(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IB', data, offset)
+        args = struct.unpack_from('<IB', data, offset)
         return cls(*args)
 
 
@@ -4964,7 +4964,7 @@ class StorageInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBBfffff', data, offset)
+        args = struct.unpack_from('<IBBBfffff', data, offset)
         return cls(*args)
 
 
@@ -4983,7 +4983,7 @@ class CameraCaptureStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBfIf', data, offset)
+        args = struct.unpack_from('<IBBfIf', data, offset)
         return cls(*args)
 
 
@@ -5013,7 +5013,7 @@ class CameraImageCaptured(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IQBiiii16sib205s', data, offset)
+        args = struct.unpack_from('<IQBiiii16sib205s', data, offset)
         args[7] = tuple(*struct.unpack('<4f', args[7]))
         return cls(*args)
 
@@ -5035,7 +5035,7 @@ class FlightInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IQQQ', data, offset)
+        args = struct.unpack_from('<IQQQ', data, offset)
         return cls(*args)
 
 
@@ -5052,7 +5052,7 @@ class MountOrientation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Ifff', data, offset)
+        args = struct.unpack_from('<Ifff', data, offset)
         return cls(*args)
 
 
@@ -5071,7 +5071,7 @@ class LoggingData(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHBB249s', data, offset)
+        args = struct.unpack_from('<BBHBB249s', data, offset)
         args[5] = tuple(*struct.unpack('<249B', args[5]))
         return cls(*args)
 
@@ -5091,7 +5091,7 @@ class LoggingDataAcked(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHBB249s', data, offset)
+        args = struct.unpack_from('<BBHBB249s', data, offset)
         args[5] = tuple(*struct.unpack('<249B', args[5]))
         return cls(*args)
 
@@ -5108,7 +5108,7 @@ class LoggingAck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH', data, offset)
+        args = struct.unpack_from('<BBH', data, offset)
         return cls(*args)
 
 
@@ -5133,7 +5133,7 @@ class VideoStreamInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBHfHHIHH32s160s', data, offset)
+        args = struct.unpack_from('<BBBHfHHIHH32s160s', data, offset)
         return cls(*args)
 
 
@@ -5154,7 +5154,7 @@ class VideoStreamStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BHfHHIHH', data, offset)
+        args = struct.unpack_from('<BHfHHIHH', data, offset)
         return cls(*args)
 
 
@@ -5177,7 +5177,7 @@ class CameraFovStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Iiiiiii16sff', data, offset)
+        args = struct.unpack_from('<Iiiiiii16sff', data, offset)
         args[7] = tuple(*struct.unpack('<4f', args[7]))
         return cls(*args)
 
@@ -5201,7 +5201,7 @@ class CameraTrackingImageStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBfffffff', data, offset)
+        args = struct.unpack_from('<BBBfffffff', data, offset)
         return cls(*args)
 
 
@@ -5227,7 +5227,7 @@ class CameraTrackingGeoStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Biiffffffffff', data, offset)
+        args = struct.unpack_from('<Biiffffffffff', data, offset)
         return cls(*args)
 
 
@@ -5249,7 +5249,7 @@ class CameraThermalRange(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBffffff', data, offset)
+        args = struct.unpack_from('<IBBffffff', data, offset)
         return cls(*args)
 
 
@@ -5271,7 +5271,7 @@ class GimbalManagerInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IIBffffff', data, offset)
+        args = struct.unpack_from('<IIBffffff', data, offset)
         return cls(*args)
 
 
@@ -5291,7 +5291,7 @@ class GimbalManagerStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IIBBBBB', data, offset)
+        args = struct.unpack_from('<IIBBBBB', data, offset)
         return cls(*args)
 
 
@@ -5312,7 +5312,7 @@ class GimbalManagerSetAttitude(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBIB16sfff', data, offset)
+        args = struct.unpack_from('<BBIB16sfff', data, offset)
         args[4] = tuple(*struct.unpack('<4f', args[4]))
         return cls(*args)
 
@@ -5341,7 +5341,7 @@ class GimbalDeviceInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!I32s32s32sIIQHHffffff', data, offset)
+        args = struct.unpack_from('<I32s32s32sIIQHHffffff', data, offset)
         return cls(*args)
 
 
@@ -5372,7 +5372,7 @@ class GimbalDeviceSetAttitude(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBH16sfff', data, offset)
+        args = struct.unpack_from('<BBH16sfff', data, offset)
         args[3] = tuple(*struct.unpack('<4f', args[3]))
         return cls(*args)
 
@@ -5409,7 +5409,7 @@ class GimbalDeviceAttitudeStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBIH16sfffI', data, offset)
+        args = struct.unpack_from('<BBIH16sfffI', data, offset)
         args[4] = tuple(*struct.unpack('<4f', args[4]))
         return cls(*args)
 
@@ -5435,7 +5435,7 @@ class AutopilotStateForGimbalDevice(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBQ16sIfffIfHB', data, offset)
+        args = struct.unpack_from('<BBQ16sIfffIfHB', data, offset)
         args[3] = tuple(*struct.unpack('<4f', args[3]))
         return cls(*args)
 
@@ -5457,7 +5457,7 @@ class GimbalManagerSetPitchyaw(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBIBffff', data, offset)
+        args = struct.unpack_from('<BBIBffff', data, offset)
         return cls(*args)
 
 
@@ -5478,7 +5478,7 @@ class GimbalManagerSetManualControl(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBIBffff', data, offset)
+        args = struct.unpack_from('<BBIBffff', data, offset)
         return cls(*args)
 
 
@@ -5500,7 +5500,7 @@ class EscInfo(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BQHBBB8s16s8s', data, offset)
+        args = struct.unpack_from('<BQHBBB8s16s8s', data, offset)
         args[6] = tuple(*struct.unpack('<4H', args[6]))
         args[7] = tuple(*struct.unpack('<4I', args[7]))
         args[8] = tuple(*struct.unpack('<4h', args[8]))
@@ -5521,7 +5521,7 @@ class EscStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BQ16s16s16s', data, offset)
+        args = struct.unpack_from('<BQ16s16s16s', data, offset)
         args[2] = tuple(*struct.unpack('<4i', args[2]))
         args[3] = tuple(*struct.unpack('<4f', args[3]))
         args[4] = tuple(*struct.unpack('<4f', args[4]))
@@ -5539,7 +5539,7 @@ class WifiConfigAp(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!32s64s', data, offset)
+        args = struct.unpack_from('<32s64s', data, offset)
         return cls(*args)
 
 
@@ -5569,7 +5569,7 @@ class AisVessel(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IiiHHHbBBHHBB7s20sHH', data, offset)
+        args = struct.unpack_from('<IiiHHHbBBHHBB7s20sHH', data, offset)
         return cls(*args)
 
 
@@ -5588,7 +5588,7 @@ class UavcanNodeStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QIBBBH', data, offset)
+        args = struct.unpack_from('<QIBBBH', data, offset)
         return cls(*args)
 
 
@@ -5610,7 +5610,7 @@ class UavcanNodeInfo(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QI80sBB16sBBI', data, offset)
+        args = struct.unpack_from('<QI80sBB16sBBI', data, offset)
         args[5] = tuple(*struct.unpack('<16B', args[5]))
         return cls(*args)
 
@@ -5628,7 +5628,7 @@ class ParamExtRequestRead(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16sh', data, offset)
+        args = struct.unpack_from('<BB16sh', data, offset)
         return cls(*args)
 
 
@@ -5643,7 +5643,7 @@ class ParamExtRequestList(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB', data, offset)
+        args = struct.unpack_from('<BB', data, offset)
         return cls(*args)
 
 
@@ -5661,7 +5661,7 @@ class ParamExtValue(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!16s128sBHH', data, offset)
+        args = struct.unpack_from('<16s128sBHH', data, offset)
         return cls(*args)
 
 
@@ -5679,7 +5679,7 @@ class ParamExtSet(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16s128sB', data, offset)
+        args = struct.unpack_from('<BB16s128sB', data, offset)
         return cls(*args)
 
 
@@ -5696,7 +5696,7 @@ class ParamExtAck(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!16s128sBB', data, offset)
+        args = struct.unpack_from('<16s128sBB', data, offset)
         return cls(*args)
 
 
@@ -5715,7 +5715,7 @@ class ObstacleDistance(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QB144sBHH', data, offset)
+        args = struct.unpack_from('<QB144sBHH', data, offset)
         args[2] = tuple(*struct.unpack('<72H', args[2]))
         return cls(*args)
 
@@ -5744,7 +5744,7 @@ class Odometry(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QBBfff16sffffff84s84s', data, offset)
+        args = struct.unpack_from('<QBBfff16sffffff84s84s', data, offset)
         args[6] = tuple(*struct.unpack('<4f', args[6]))
         args[13] = tuple(*struct.unpack('<21f', args[13]))
         args[14] = tuple(*struct.unpack('<21f', args[14]))
@@ -5774,7 +5774,7 @@ class TrajectoryRepresentationWaypoints(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QB20s20s20s20s20s20s20s20s20s20s20s10s', data, offset)
+        args = struct.unpack_from('<QB20s20s20s20s20s20s20s20s20s20s20s10s', data, offset)
         args[2] = tuple(*struct.unpack('<5f', args[2]))
         args[3] = tuple(*struct.unpack('<5f', args[3]))
         args[4] = tuple(*struct.unpack('<5f', args[4]))
@@ -5806,7 +5806,7 @@ class TrajectoryRepresentationBezier(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QB20s20s20s20s20s', data, offset)
+        args = struct.unpack_from('<QB20s20s20s20s20s', data, offset)
         args[2] = tuple(*struct.unpack('<5f', args[2]))
         args[3] = tuple(*struct.unpack('<5f', args[3]))
         args[4] = tuple(*struct.unpack('<5f', args[4]))
@@ -5831,7 +5831,7 @@ class CellularStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBHHH', data, offset)
+        args = struct.unpack_from('<BBBBHHH', data, offset)
         return cls(*args)
 
 
@@ -5852,7 +5852,7 @@ class IsbdLinkStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QQHHBBBB', data, offset)
+        args = struct.unpack_from('<QQHHBBBB', data, offset)
         return cls(*args)
 
 
@@ -5875,7 +5875,7 @@ class CellularConfig(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB16s16s32s16sBB', data, offset)
+        args = struct.unpack_from('<BB16s16s32s16sBB', data, offset)
         return cls(*args)
 
 
@@ -5890,7 +5890,7 @@ class RawRpm(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Bf', data, offset)
+        args = struct.unpack_from('<Bf', data, offset)
         return cls(*args)
 
 
@@ -5921,7 +5921,7 @@ class UtmGlobalPosition(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q18siiiihhhHHHiiiHBB', data, offset)
+        args = struct.unpack_from('<Q18siiiihhhHHHiiiHBB', data, offset)
         args[1] = tuple(*struct.unpack('<18B', args[1]))
         return cls(*args)
 
@@ -5938,7 +5938,7 @@ class DebugFloatArray(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!Q10sH', data, offset)
+        args = struct.unpack_from('<Q10sH', data, offset)
         return cls(*args)
 
 
@@ -5957,7 +5957,7 @@ class OrbitExecutionStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QfBiif', data, offset)
+        args = struct.unpack_from('<QfBiif', data, offset)
         return cls(*args)
 
 
@@ -5982,7 +5982,7 @@ class SmartBatteryInfo(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBiiH16s50sHHHH', data, offset)
+        args = struct.unpack_from('<BBBiiH16s50sHHHH', data, offset)
         return cls(*args)
 
 
@@ -6015,7 +6015,7 @@ class FuelStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BfffBffI', data, offset)
+        args = struct.unpack_from('<BfffBffI', data, offset)
         return cls(*args)
 
 
@@ -6050,7 +6050,7 @@ class BatteryInfo(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBBHHffffffffff9s32s50s', data, offset)
+        args = struct.unpack_from('<BBBBBHHffffffffff9s32s50s', data, offset)
         return cls(*args)
 
 
@@ -6074,7 +6074,7 @@ class GeneratorStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QHffffhfhIi', data, offset)
+        args = struct.unpack_from('<QHffffhfhIi', data, offset)
         return cls(*args)
 
 
@@ -6090,7 +6090,7 @@ class ActuatorOutputStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QI128s', data, offset)
+        args = struct.unpack_from('<QI128s', data, offset)
         args[2] = tuple(*struct.unpack('<32f', args[2]))
         return cls(*args)
 
@@ -6109,7 +6109,7 @@ class TimeEstimateToTarget(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!iiiii', data, offset)
+        args = struct.unpack_from('<iiiii', data, offset)
         return cls(*args)
 
 
@@ -6127,7 +6127,7 @@ class Tunnel(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHB128s', data, offset)
+        args = struct.unpack_from('<BBHB128s', data, offset)
         args[4] = tuple(*struct.unpack('<128B', args[4]))
         return cls(*args)
 
@@ -6147,7 +6147,7 @@ class CanFrame(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBI8s', data, offset)
+        args = struct.unpack_from('<BBBBI8s', data, offset)
         args[5] = tuple(*struct.unpack('<8B', args[5]))
         return cls(*args)
 
@@ -6181,7 +6181,7 @@ class OnboardComputerStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QIB8s10s4s10sb8s8sII16s16s16s24s24s24s24s24s', data, offset)
+        args = struct.unpack_from('<QIB8s10s4s10sb8s8sII16s16s16s24s24s24s24s24s', data, offset)
         args[3] = tuple(*struct.unpack('<8B', args[3]))
         args[4] = tuple(*struct.unpack('<10B', args[4]))
         args[5] = tuple(*struct.unpack('<4B', args[5]))
@@ -6213,7 +6213,7 @@ class ComponentInformation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!II100sI100s', data, offset)
+        args = struct.unpack_from('<II100sI100s', data, offset)
         return cls(*args)
 
 
@@ -6234,7 +6234,7 @@ class ComponentInformationBasic(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IQI32s32s24s24s32s', data, offset)
+        args = struct.unpack_from('<IQI32s32s24s24s32s', data, offset)
         return cls(*args)
 
 
@@ -6259,7 +6259,7 @@ class ComponentMetadata(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!II100s', data, offset)
+        args = struct.unpack_from('<II100s', data, offset)
         return cls(*args)
 
 
@@ -6276,7 +6276,7 @@ class PlayTuneV2(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBI248s', data, offset)
+        args = struct.unpack_from('<BBI248s', data, offset)
         return cls(*args)
 
 
@@ -6292,7 +6292,7 @@ class SupportedTunes(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBI', data, offset)
+        args = struct.unpack_from('<BBI', data, offset)
         return cls(*args)
 
 
@@ -6312,7 +6312,7 @@ class Event(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBIIHB40s', data, offset)
+        args = struct.unpack_from('<BBIIHB40s', data, offset)
         args[6] = tuple(*struct.unpack('<40B', args[6]))
         return cls(*args)
 
@@ -6328,7 +6328,7 @@ class CurrentEventSequence(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HB', data, offset)
+        args = struct.unpack_from('<HB', data, offset)
         return cls(*args)
 
 
@@ -6345,7 +6345,7 @@ class RequestEvent(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHH', data, offset)
+        args = struct.unpack_from('<BBHH', data, offset)
         return cls(*args)
 
 
@@ -6363,7 +6363,7 @@ class ResponseEventError(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBHHB', data, offset)
+        args = struct.unpack_from('<BBHHB', data, offset)
         return cls(*args)
 
 
@@ -6387,7 +6387,7 @@ class IlluminatorStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!IBBIBffffff', data, offset)
+        args = struct.unpack_from('<IBBIBffffff', data, offset)
         return cls(*args)
 
 
@@ -6406,7 +6406,7 @@ class CanfdFrame(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBI64s', data, offset)
+        args = struct.unpack_from('<BBBBI64s', data, offset)
         args[5] = tuple(*struct.unpack('<64B', args[5]))
         return cls(*args)
 
@@ -6426,7 +6426,7 @@ class CanFilterModify(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBBB32s', data, offset)
+        args = struct.unpack_from('<BBBBB32s', data, offset)
         args[5] = tuple(*struct.unpack('<16H', args[5]))
         return cls(*args)
 
@@ -6443,7 +6443,7 @@ class WheelDistance(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QB128s', data, offset)
+        args = struct.unpack_from('<QB128s', data, offset)
         args[2] = tuple(*struct.unpack('<16d', args[2]))
         return cls(*args)
 
@@ -6465,7 +6465,7 @@ class WinchStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!QfffffhI', data, offset)
+        args = struct.unpack_from('<QfffffhI', data, offset)
         return cls(*args)
 
 
@@ -6484,7 +6484,7 @@ class OpenDroneIdBasicId(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sBB20s', data, offset)
+        args = struct.unpack_from('<BB20sBB20s', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         args[5] = tuple(*struct.unpack('<20B', args[5]))
         return cls(*args)
@@ -6518,7 +6518,7 @@ class OpenDroneIdLocation(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sBHHhiiffBfBBBBfB', data, offset)
+        args = struct.unpack_from('<BB20sBHHhiiffBfBBBBfB', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         return cls(*args)
 
@@ -6541,7 +6541,7 @@ class OpenDroneIdAuthentication(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sBBBBI23s', data, offset)
+        args = struct.unpack_from('<BB20sBBBBI23s', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         args[8] = tuple(*struct.unpack('<23B', args[8]))
         return cls(*args)
@@ -6561,7 +6561,7 @@ class OpenDroneIdSelfId(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sB23s', data, offset)
+        args = struct.unpack_from('<BB20sB23s', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         return cls(*args)
 
@@ -6590,7 +6590,7 @@ class OpenDroneIdSystem(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sBBiiHHffBBfI', data, offset)
+        args = struct.unpack_from('<BB20sBBiiHHffBBfI', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         return cls(*args)
 
@@ -6609,7 +6609,7 @@ class OpenDroneIdOperatorId(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sB20s', data, offset)
+        args = struct.unpack_from('<BB20sB20s', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         return cls(*args)
 
@@ -6629,7 +6629,7 @@ class OpenDroneIdMessagePack(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BB20sBB225s', data, offset)
+        args = struct.unpack_from('<BB20sBB225s', data, offset)
         args[2] = tuple(*struct.unpack('<20B', args[2]))
         args[5] = tuple(*struct.unpack('<225B', args[5]))
         return cls(*args)
@@ -6646,7 +6646,7 @@ class OpenDroneIdArmStatus(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!B50s', data, offset)
+        args = struct.unpack_from('<B50s', data, offset)
         return cls(*args)
 
 
@@ -6665,7 +6665,7 @@ class OpenDroneIdSystemUpdate(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBiifI', data, offset)
+        args = struct.unpack_from('<BBiifI', data, offset)
         return cls(*args)
 
 
@@ -6681,7 +6681,7 @@ class HygrometerSensor(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BhH', data, offset)
+        args = struct.unpack_from('<BhH', data, offset)
         return cls(*args)
 
 
@@ -6700,7 +6700,7 @@ class Heartbeat(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!BBBIBB', data, offset)
+        args = struct.unpack_from('<BBBIBB', data, offset)
         return cls(*args)
 
 
@@ -6718,7 +6718,7 @@ class ProtocolVersion(Unpackable):
 
     @classmethod
     def unpack(cls, data, offset = 0):
-        args = struct.unpack_from('!HHH8s8s', data, offset)
+        args = struct.unpack_from('<HHH8s8s', data, offset)
         args[3] = tuple(*struct.unpack('<8B', args[3]))
         args[4] = tuple(*struct.unpack('<8B', args[4]))
         return cls(*args)

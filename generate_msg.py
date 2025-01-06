@@ -61,7 +61,7 @@ def reorder_fields(fields: list):
     return sorted(fields, key=type_size, reverse=True)
 
 def resolve_fmt(msg:dict) -> Tuple[str, List[Tuple[int, str]]]:
-    main_fmt = '!'
+    main_fmt = '<'
     sub_fmts = []
     for i, field in enumerate(ensure_list(msg['field'])):
         # check if array
